@@ -17,6 +17,8 @@
     <string name="company_placeholder">Company Name</string>
     <string name="name_placeholder">Nama</string>
     <string name="username_placeholder">Username</string>
+    <string name="plaholder_pic">placeholder picture</string>
+    <string name="search">Search</string>
 
     <string-array name="tab_title">
         <item>@string/followers_title</item>

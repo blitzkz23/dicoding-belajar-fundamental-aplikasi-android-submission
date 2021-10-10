@@ -7,7 +7,7 @@ import com.app.githubuserapplication.databinding.ItemRowUserBinding
 import com.app.githubuserapplication.model.GithubUser
 import com.bumptech.glide.Glide
 
-class FollowerAdapter(private val listFollower: List<GithubUser>) : RecyclerView.Adapter<FollowerAdapter.ViewHolder>(){
+class FollowsAdapter(private val listFollow: List<GithubUser>) : RecyclerView.Adapter<FollowsAdapter.ViewHolder>(){
 	class ViewHolder(var binding: ItemRowUserBinding) : RecyclerView.ViewHolder(binding.root)
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -16,17 +16,17 @@ class FollowerAdapter(private val listFollower: List<GithubUser>) : RecyclerView
 	}
 
 	override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-		val follower = listFollower[position]
+		val follow = listFollow[position]
 
 		with(holder.binding) {
 			Glide.with(root.context)
-				.load(follower.avatarUrl)
+				.load(follow.avatarUrl)
 				.circleCrop()
 				.into(imgUserAvatar)
-			tvName.text = follower.login
-			tvUrl.text = follower.htmlUrl
+			tvName.text = follow.login
+			tvUrl.text = follow.htmlUrl
 		}
 	}
 
-	override fun getItemCount(): Int = listFollower.size
+	override fun getItemCount(): Int = listFollow.size
 }

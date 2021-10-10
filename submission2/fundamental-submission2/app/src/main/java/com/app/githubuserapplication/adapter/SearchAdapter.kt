@@ -2,6 +2,7 @@ package com.app.githubuserapplication.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.app.githubuserapplication.databinding.ItemRowUserBinding
 import com.app.githubuserapplication.model.GithubUser
@@ -9,6 +10,13 @@ import com.bumptech.glide.Glide
 
 class SearchAdapter(private val listUser: List<GithubUser>) : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 	private lateinit var onItemClickCallback: OnItemClickCallback
+
+	fun ImageView.loadImage(url: String?) {
+		Glide.with(this.context)
+			.load(url)
+			.circleCrop()
+			.into(this)
+	}
 
 	class ViewHolder(var binding:  ItemRowUserBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -21,10 +29,7 @@ class SearchAdapter(private val listUser: List<GithubUser>) : RecyclerView.Adapt
 		val user = listUser[position]
 
 		with(holder.binding) {
-			Glide.with(root.context)
-				.load(user.avatarUrl)
-				.circleCrop()
-				.into(imgUserAvatar)
+			imgUserAvatar.loadImage(user.avatarUrl)
 			tvName.text = user.login
 			tvUrl.text = user.htmlUrl
 		root.setOnClickListener { onItemClickCallback.onItemClicked(listUser[position]) }

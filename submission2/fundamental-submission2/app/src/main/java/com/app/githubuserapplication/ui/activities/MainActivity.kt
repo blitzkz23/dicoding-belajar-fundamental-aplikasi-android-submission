@@ -20,7 +20,7 @@ import com.app.githubuserapplication.utils.Helper
 
 class MainActivity : AppCompatActivity() {
 	private var _binding: ActivityMainBinding? = null
-	private val binding get() = _binding!!
+	private val binding get() = _binding
 	private val mainViewModel by viewModels<MainViewModel>()
 	private var listGithubUser = ArrayList<GithubUser>()
 	private val helper = Helper()
@@ -29,14 +29,14 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setTheme(R.style.Theme_GithubUserApplication)
 		_binding = ActivityMainBinding.inflate(layoutInflater)
-		setContentView(binding.root)
+		setContentView(binding?.root)
 
 		mainViewModel.listGithubUser.observe(this, { listGithubUser ->
 			setUserData(listGithubUser)
 		})
 
 		mainViewModel.isLoading.observe(this, {
-			helper.showLoading(it, binding.progressBar)
+			helper.showLoading(it, binding!!.progressBar)
 		})
 
 		mainViewModel.totalCount.observe(this, {
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 		})
 
 		val layoutManager = LinearLayoutManager(this@MainActivity)
-		binding.rvUser.layoutManager = layoutManager
+		binding!!.rvUser.layoutManager = layoutManager
 	}
 
 	/**
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 		searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 			override fun onQueryTextSubmit(query: String?): Boolean {
 				query?.let {
-					binding.rvUser.visibility = View.VISIBLE
+					binding!!.rvUser.visibility = View.VISIBLE
 					mainViewModel.searchGithubUser(it)
 					setUserData(listGithubUser)
 				}
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 			listUser.addAll(listGithubUser)
 		}
 		val adapter = SearchAdapter(listUser)
-		binding.rvUser.adapter = adapter
+		binding!!.rvUser.adapter = adapter
 
 		adapter.setOnItemClickCallback(object : SearchAdapter.OnItemClickCallback {
 			override fun onItemClicked(data: GithubUser) {
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
 	 * Function to show or hide text view based on the result of total count.
 	 */
 	private fun showText(totalCount: Int) {
-		with(binding) {
+		binding?.apply {
 			if (totalCount == 0) {
 				tvNotice.visibility = View.VISIBLE
 				tvNotice.text = resources.getString(R.string.user_not_found)
@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
 	 */
 	private fun hideKeyboard() {
 		val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-		imm.hideSoftInputFromWindow(binding.rvUser.windowToken, 0)
+		imm.hideSoftInputFromWindow(binding!!.rvUser.windowToken, 0)
 	}
 
 	override fun onDestroy() {

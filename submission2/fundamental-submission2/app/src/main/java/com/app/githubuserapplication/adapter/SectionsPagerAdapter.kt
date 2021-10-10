@@ -8,9 +8,8 @@ import com.app.githubuserapplication.ui.fragments.FollowerFragment
 import com.app.githubuserapplication.ui.fragments.FollowingFragment
 
 class SectionsPagerAdapter(activity: AppCompatActivity, private val login: Bundle) : FragmentStateAdapter(activity) {
-	override fun getItemCount(): Int {
-		return 2
-	}
+	override fun getItemCount(): Int = 2
+
 
 	override fun createFragment(position: Int): Fragment {
 		var fragment: Fragment? = null

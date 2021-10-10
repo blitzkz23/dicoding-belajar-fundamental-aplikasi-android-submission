@@ -2,6 +2,7 @@ package com.app.githubuserapplication.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.app.githubuserapplication.R
@@ -17,7 +18,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class UserDetailActivity : AppCompatActivity() {
 	private var _binding: ActivityUserDetailBinding? = null
-	private val binding get() = _binding!!
+	private val binding get() = _binding
 	private val userDetailViewModel by viewModels<UserDetailViewModel>()
 	private val helper = Helper()
 
@@ -29,14 +30,14 @@ class UserDetailActivity : AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		_binding = ActivityUserDetailBinding.inflate(layoutInflater)
-		setContentView(binding.root)
+		setContentView(binding?.root)
 
 		userDetailViewModel.listDetail.observe(this, { detailList ->
 			setDataToView(detailList)
 		})
 
 		userDetailViewModel.isLoading.observe(this, {
-			helper.showLoading(it, binding.progressBar2)
+			helper.showLoading(it, binding!!.progressBar2)
 		})
 
 		setTabLayoutView()
@@ -53,10 +54,10 @@ class UserDetailActivity : AppCompatActivity() {
 		login.putString(EXTRA_FRAGMENT, userIntent.login)
 
 		val sectionPagerAdapter = SectionsPagerAdapter(this, login)
-		val viewPager: ViewPager2 = binding.viewPager
+		val viewPager: ViewPager2 = binding!!.viewPager
 
 		viewPager.adapter = sectionPagerAdapter
-		val tabs: TabLayout = binding.tabs
+		val tabs: TabLayout = binding!!.tabs
 		val tabTitle = resources.getStringArray(R.array.tab_title)
 		TabLayoutMediator(tabs, viewPager) { tab, position ->
 			tab.text = tabTitle[position]
@@ -67,11 +68,8 @@ class UserDetailActivity : AppCompatActivity() {
 	 * Function to set the data from API into view.
 	 */
 	private fun setDataToView(detailList: DetailResponse) {
-		binding.apply {
-			Glide.with(this@UserDetailActivity)
-				.load(detailList.avatarUrl)
-				.circleCrop()
-				.into(detailsIvAvatar)
+		binding?.apply {
+			detailsIvAvatar.loadImage(detailList.avatarUrl)
 			detailsTvName.text = detailList.name ?: "No Name."
 			detailsTvUsername.text = detailList.login
 			detailsTvBio.text = if (detailList.bio == null) "This person haven\'t set their bio yet." else detailList.bio.toString()
@@ -83,6 +81,17 @@ class UserDetailActivity : AppCompatActivity() {
 			detailsTvLocation.text = detailList.location ?: "No location."
 			detailsTvBlog.text = if (detailList.blog == "") "No website/blog." else detailList.blog
 		}
+		supportActionBar?.title = detailList.login
+	}
+
+	/**
+	 * Extension function to use the Glide library
+	 */
+	fun ImageView.loadImage(url: String?) {
+		Glide.with(this.context)
+			.load(url)
+			.circleCrop()
+			.into(this)
 	}
 
 	override fun onDestroy() {

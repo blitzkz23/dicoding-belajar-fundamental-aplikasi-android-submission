@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.app.githubuserapplication.adapter.FollowingAdapter
-import com.app.githubuserapplication.databinding.FragmentFollowerBinding
+import com.app.githubuserapplication.adapter.FollowsAdapter
+import com.app.githubuserapplication.databinding.FragmentFollowsBinding
 import com.app.githubuserapplication.model.GithubUser
 import com.app.githubuserapplication.ui.activities.UserDetailActivity
 import com.app.githubuserapplication.ui.viewmodels.FollowingViewModel
@@ -16,8 +16,8 @@ import com.app.githubuserapplication.utils.Helper
 
 
 class FollowingFragment : Fragment() {
-	private var _binding: FragmentFollowerBinding? = null
-	private val binding get() = _binding!!
+	private var _binding: FragmentFollowsBinding? = null
+	private val binding get() = _binding
 	private lateinit var followingViewModel: FollowingViewModel
 	private val helper = Helper()
 
@@ -30,16 +30,16 @@ class FollowingFragment : Fragment() {
 	override fun onCreateView(
 		inflater: LayoutInflater, container: ViewGroup?,
 		savedInstanceState: Bundle?
-	): View {
-		_binding = FragmentFollowerBinding.inflate(inflater, container, false)
-		return binding.root
+	): View? {
+		_binding = FragmentFollowsBinding.inflate(inflater, container, false)
+		return binding?.root
 	}
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 
 		followingViewModel.isLoading.observe(viewLifecycleOwner, {
-			helper.showLoading(it, binding.progressBar3)
+			helper.showLoading(it, binding!!.progressBar3)
 		})
 		followingViewModel.listFollowing.observe(viewLifecycleOwner, { listFollowing ->
 			setDataToFragment(listFollowing)
@@ -53,13 +53,13 @@ class FollowingFragment : Fragment() {
 	 */
 	private fun setDataToFragment(listFollowing: List<GithubUser>) {
 		val listUser = ArrayList<GithubUser>()
-		with(binding) {
+		binding?.apply {
 			for (user in listFollowing) {
 				listUser.clear()
 				listUser.addAll(listFollowing)
 			}
 			rvFollower.layoutManager = LinearLayoutManager(context)
-			val adapter = FollowingAdapter(listFollowing)
+			val adapter = FollowsAdapter(listFollowing)
 			rvFollower.adapter = adapter
 		}
 	}
