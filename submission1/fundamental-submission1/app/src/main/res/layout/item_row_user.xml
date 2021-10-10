@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    card_view:cardBackgroundColor="@color/secondary_gray"
+    card_view:cardCornerRadius="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="8dp"
+    card_view:strokeWidth="2dp"
+    card_view:strokeColor="@color/stroke_gray">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/img_user_avatar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/TextContent.Title"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            card_view:layout_constraintStart_toEndOf="@+id/img_user_avatar"
+            card_view:layout_constraintTop_toTopOf="parent"
+            tools:text="Name" />
+
+        <TextView
+            android:id="@+id/tv_company"
+            style="@style/TextContent"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="12sp"
+            card_view:layout_constraintStart_toStartOf="@+id/tv_name"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_name"
+            tools:text="Company Name" />
+
+        <TextView
+            android:id="@+id/tv_repository"
+            style="@style/TextContent.Small"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintStart_toStartOf="@+id/tv_company"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_company"
+            tools:text="XX Repositories" />
+
+        <TextView
+            android:id="@+id/tv_follower"
+            style="@style/TextContent.Small"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintStart_toEndOf="@+id/tv_repository"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_company"
+            tools:text="XX Followers" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

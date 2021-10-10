@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/fundamental-submission1/app/src/main/res/drawable/ic_company.xml" value="0.23703703703703705" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/fundamental-submission1/app/src/main/res/drawable/ic_follower.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/fundamental-submission1/app/src/main/res/drawable/ic_github_brands.xml" value="0.25" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/fundamental-submission1/app/src/main/res/drawable/ic_github_fore.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/fundamental-submission1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/fundamental-submission1/app/src/main/res/drawable/ic_location.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/fundamental-submission1/app/src/main/res/drawable/ic_repository.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/fundamental-submission1/app/src/main/res/drawable/splash_image.xml" value="0.25" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/fundamental-submission1/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/fundamental-submission1/app/src/main/res/layout/activity_user_details.xml" value="0.25" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/fundamental-submission1/app/src/main/res/layout/item_row_user.xml" value="0.33" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/submissions/fundamental-submission1/app/src/main/res/drawable/ic_github_brands.xml" value="0.33645833333333336" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/submissions/fundamental-submission1/app/src/main/res/drawable/ic_github_fore.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/submissions/fundamental-submission1/app/src/main/res/font/open_sans_bold.xml" value="0.3546875" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/submissions/fundamental-submission1/app/src/main/res/layout/activity_main.xml" value="0.2866847826086957" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/submissions/fundamental-submission1/app/src/main/res/layout/activity_user_details.xml" value="0.33" />
+        <entry key="..\:/Users/Noparuu/Desktop/Dicoding/belajar-fundamental-aplikasi-android/dicoding-fundamental-submissions/submissions/fundamental-submission1/app/src/main/res/layout/item_row_user.xml" value="0.26222826086956524" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

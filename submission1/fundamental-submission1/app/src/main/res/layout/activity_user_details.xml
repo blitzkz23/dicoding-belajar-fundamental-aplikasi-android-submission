@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/secondary_gray"
+    android:fillViewport="true">
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="16dp">
+
+      <de.hdodenhof.circleimageview.CircleImageView
+          android:id="@+id/details_img_avatar"
+          android:layout_width="160dp"
+          android:layout_height="160dp"
+          android:layout_marginTop="64dp"
+          android:contentDescription="@string/user_s_avatar"
+          android:scaleType="centerCrop"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.5"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:src="@tools:sample/avatars" />
+
+      <TextView
+          android:id="@+id/details_tv_name"
+          style="@style/TextContent.TitleDetails"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="32dp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/details_img_avatar"
+          tools:text="Nama" />
+
+      <TextView
+          android:id="@+id/details_tv_username"
+          style="@style/TextContent.SubtitleDetails"
+          android:layout_marginStart="32dp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/details_tv_name"
+          tools:text="Username" />
+
+      <TextView
+          android:id="@+id/details_tv_company"
+          style="@style/TextContent"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="24dp"
+          android:ellipsize="end"
+          android:maxLines="1"
+          android:drawableStart="@drawable/ic_company"
+          android:drawablePadding="4dp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/details_tv_username"
+          tools:text="Company Name" />
+
+      <Button
+          android:id="@+id/details_btn_share"
+          android:layout_width="0dp"
+          android:layout_height="54dp"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="32dp"
+          android:layout_marginBottom="32dp"
+          android:backgroundTint="@color/stroke_gray"
+          android:text="@string/share_profile"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/details_tv_repositories"
+          app:layout_constraintVertical_bias="0.32" />
+
+      <TextView
+          android:id="@+id/details_tv_follower"
+          style="@style/TextContent"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="24dp"
+          android:drawableStart="@drawable/ic_follower"
+          android:drawablePadding="4dp"
+          android:textColor="@color/detail_text"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/details_tv_location"
+          tools:text="XX followers" />
+
+      <TextView
+          android:id="@+id/details_tv_following"
+          style="@style/TextContent"
+          android:layout_marginStart="8dp"
+          android:drawableStart="@drawable/ic_follower"
+          android:drawablePadding="4dp"
+          android:textColor="@color/detail_text"
+          app:layout_constraintBottom_toBottomOf="@+id/details_tv_follower"
+          app:layout_constraintStart_toEndOf="@+id/details_tv_follower"
+          app:layout_constraintTop_toTopOf="@+id/details_tv_follower"
+          tools:text="XX following" />
+
+      <TextView
+          android:id="@+id/details_tv_repositories"
+          style="@style/TextContent"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="8dp"
+          android:drawableStart="@drawable/ic_repository"
+          android:drawablePadding="4dp"
+          android:textColor="@color/detail_text"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/details_tv_follower"
+          tools:text="XX repositories" />
+
+      <TextView
+          android:id="@+id/details_tv_location"
+          style="@style/TextContent"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="8dp"
+          android:drawableStart="@drawable/ic_location"
+          android:drawablePadding="4dp"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/details_tv_company"
+          tools:text="Location" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
