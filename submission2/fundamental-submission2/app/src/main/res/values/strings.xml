@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Github User Application</string>
+    <string name="search_hint">Enter a Github\'s username</string>
+    <string name="user_not_found">User not found please search\n for another username.</string>
+    <string name="search_guide">You can search a Github\'s username\n in the action bar search icon.</string>
+    <string name="content_description">User Avatar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="followers_title">Followers</string>
+    <string name="following_title">Following</string>
+    <string name="repository">%d\n repository</string>
+    <string name="gist">%d\n gist</string>
+    <string name="following">%d\n following</string>
+    <string name="follower">%d\n follower</string>
+    <string name="location_placeholder">Location</string>
+    <string name="website_placeholder">Website</string>
+    <string name="company_placeholder">Company Name</string>
+    <string name="name_placeholder">Nama</string>
+    <string name="username_placeholder">Username</string>
+
+    <string-array name="tab_title">
+        <item>@string/followers_title</item>
+        <item>@string/following_title</item>
+    </string-array>
+</resources>
