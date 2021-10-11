@@ -23,11 +23,6 @@ class UserDetailActivity : AppCompatActivity() {
 	private val userDetailViewModel by viewModels<UserDetailViewModel>()
 	private val helper = Helper()
 
-	companion object {
-		const val EXTRA_USER = "extra_user"
-		const val EXTRA_FRAGMENT = "extra_fragment"
-	}
-
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		_binding = ActivityUserDetailBinding.inflate(layoutInflater)
@@ -106,5 +101,10 @@ class UserDetailActivity : AppCompatActivity() {
 	override fun onDestroy() {
 		super.onDestroy()
 		_binding = null
+	}
+
+	companion object {
+		const val EXTRA_USER = "extra_user"
+		const val EXTRA_FRAGMENT = "extra_fragment"
 	}
 }
