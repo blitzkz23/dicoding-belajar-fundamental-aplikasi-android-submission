@@ -25,10 +25,6 @@ class MainViewModel : ViewModel() {
 	private val _status = MutableLiveData<String>()
 	val status: LiveData<String> = _status
 
-	companion object {
-		private const val TAG = "MainViewModel"
-	}
-
 	internal fun searchGithubUser(query: String) {
 		_isLoading.value = true
 		val client = ApiConfig.getApiService().searchUser(query)
@@ -57,5 +53,8 @@ class MainViewModel : ViewModel() {
 		})
 	}
 
+	companion object {
+		private const val TAG = "MainViewModel"
+	}
 
 }

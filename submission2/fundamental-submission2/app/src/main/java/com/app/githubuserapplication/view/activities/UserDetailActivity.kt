@@ -3,6 +3,7 @@ package com.app.githubuserapplication.view.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.app.githubuserapplication.R
@@ -38,6 +39,12 @@ class UserDetailActivity : AppCompatActivity() {
 
 		userDetailViewModel.isLoading.observe(this, {
 			helper.showLoading(it, binding!!.progressBar2)
+		})
+
+		userDetailViewModel.status.observe(this, { status ->
+			status?.let {
+				Toast.makeText(this, status.toString(), Toast.LENGTH_SHORT).show()
+			}
 		})
 
 		setTabLayoutView()

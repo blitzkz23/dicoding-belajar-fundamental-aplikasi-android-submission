@@ -17,9 +17,8 @@ class UserDetailViewModel : ViewModel() {
 	private val _isLoading = MutableLiveData<Boolean>()
 	val isLoading: LiveData<Boolean> = _isLoading
 
-	companion object {
-		private const val TAG = "UserDetailModel"
-	}
+	private val _status = MutableLiveData<String>()
+	val status: LiveData<String> = _status
 
 	internal fun getGithubUser(login: String) {
 		_isLoading.value = true
@@ -45,5 +44,9 @@ class UserDetailViewModel : ViewModel() {
 				Log.e(TAG, "onFailure: ${t.message}")
 			}
 		})
+	}
+
+	companion object {
+		private const val TAG = "UserDetailModel"
 	}
 }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.githubuserapplication.adapter.FollowsAdapter
@@ -43,6 +44,11 @@ class FollowingFragment : Fragment() {
 		})
 		followingViewModel.listFollowing.observe(viewLifecycleOwner, { listFollowing ->
 			setDataToFragment(listFollowing)
+		})
+		followingViewModel.status.observe(viewLifecycleOwner, { status ->
+			status?.let {
+				Toast.makeText(activity, status.toString(), Toast.LENGTH_SHORT).show()
+			}
 		})
 
 		followingViewModel.getFollowing(arguments?.getString(UserDetailActivity.EXTRA_FRAGMENT).toString())

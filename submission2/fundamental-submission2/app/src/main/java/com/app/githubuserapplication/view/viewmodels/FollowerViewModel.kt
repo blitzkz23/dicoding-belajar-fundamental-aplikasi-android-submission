@@ -17,9 +17,8 @@ class FollowerViewModel : ViewModel() {
 	private val _isLoading = MutableLiveData<Boolean>()
 	val isLoading: LiveData<Boolean> = _isLoading
 
-	companion object {
-		private const val TAG = "FollowerViewModel"
-	}
+	private val _status = MutableLiveData<String>()
+	val status: LiveData<String> = _status
 
 	internal fun getFollower(username: String) {
 		_isLoading.value = true
@@ -43,7 +42,12 @@ class FollowerViewModel : ViewModel() {
 			override fun onFailure(call: Call<List<GithubUser>>, t: Throwable) {
 				_isLoading.value = false
 				Log.e(TAG, "onFailure: ${t.message}")
+				_status.value = "Data failed to load, please try again."
 			}
 		})
+	}
+
+	companion object {
+		private const val TAG = "FollowerViewModel"
 	}
 }
