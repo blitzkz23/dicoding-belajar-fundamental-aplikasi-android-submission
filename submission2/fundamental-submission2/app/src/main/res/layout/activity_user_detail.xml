@@ -28,8 +28,11 @@
         <TextView
             android:id="@+id/details_tv_name"
             style="@style/TextContent.TitleDetails"
+            android:layout_width="250dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:lines="1"
             app:layout_constraintStart_toEndOf="@+id/detailsIvAvatar"
             app:layout_constraintTop_toTopOf="@+id/detailsIvAvatar"
             tools:text="@string/name_placeholder" />
