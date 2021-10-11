@@ -24,7 +24,8 @@ class FollowerFragment : Fragment() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		followerViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
-			FollowerViewModel::class.java)
+			FollowerViewModel::class.java
+		)
 	}
 
 	override fun onCreateView(
@@ -45,7 +46,9 @@ class FollowerFragment : Fragment() {
 			setDataToFragment(listFollower)
 		})
 
-		followerViewModel.getFollower(arguments?.getString(UserDetailActivity.EXTRA_FRAGMENT).toString())
+		followerViewModel.getFollower(
+			arguments?.getString(UserDetailActivity.EXTRA_FRAGMENT).toString()
+		)
 	}
 
 	/**

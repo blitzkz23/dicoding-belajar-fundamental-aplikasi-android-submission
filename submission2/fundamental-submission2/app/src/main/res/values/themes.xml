@@ -46,8 +46,4 @@
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="TextContent.Small">
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/detail_text</item>
-    </style>
 </resources>

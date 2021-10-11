@@ -72,11 +72,13 @@ class UserDetailActivity : AppCompatActivity() {
 			detailsIvAvatar.loadImage(detailList.avatarUrl)
 			detailsTvName.text = detailList.name ?: "No Name."
 			detailsTvUsername.text = detailList.login
-			detailsTvBio.text = if (detailList.bio == null) "This person haven\'t set their bio yet." else detailList.bio.toString()
+			detailsTvBio.text =
+				if (detailList.bio == null) "This person haven\'t set their bio yet." else detailList.bio.toString()
 			detailsTvFollower.text = resources.getString(R.string.follower, detailList.followers)
 			detailsTvFollowing.text = resources.getString(R.string.following, detailList.following)
 			detailsTvGist.text = resources.getString(R.string.gist, detailList.publicGists)
-			detailsTvRepository.text = resources.getString(R.string.repository, detailList.publicRepos)
+			detailsTvRepository.text =
+				resources.getString(R.string.repository, detailList.publicRepos)
 			detailsTvCompany.text = detailList.company ?: "No company."
 			detailsTvLocation.text = detailList.location ?: "No location."
 			detailsTvBlog.text = if (detailList.blog == "") "No website/blog." else detailList.blog
@@ -87,7 +89,7 @@ class UserDetailActivity : AppCompatActivity() {
 	/**
 	 * Extension function to use the Glide library
 	 */
-	fun ImageView.loadImage(url: String?) {
+	private fun ImageView.loadImage(url: String?) {
 		Glide.with(this.context)
 			.load(url)
 			.circleCrop()

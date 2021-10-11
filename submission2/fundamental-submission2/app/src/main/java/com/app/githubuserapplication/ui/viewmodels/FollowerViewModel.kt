@@ -34,8 +34,7 @@ class FollowerViewModel : ViewModel() {
 					val responseBody = response.body()
 					if (responseBody != null) {
 						_listFollower.value = response.body()
-					}
-					else {
+					} else {
 						Log.e(TAG, "onFailure: ${response.message()}")
 					}
 				}

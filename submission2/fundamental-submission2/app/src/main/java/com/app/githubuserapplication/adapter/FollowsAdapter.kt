@@ -7,7 +7,8 @@ import com.app.githubuserapplication.databinding.ItemRowUserBinding
 import com.app.githubuserapplication.model.GithubUser
 import com.bumptech.glide.Glide
 
-class FollowsAdapter(private val listFollow: List<GithubUser>) : RecyclerView.Adapter<FollowsAdapter.ViewHolder>(){
+class FollowsAdapter(private val listFollow: List<GithubUser>) :
+	RecyclerView.Adapter<FollowsAdapter.ViewHolder>() {
 	class ViewHolder(var binding: ItemRowUserBinding) : RecyclerView.ViewHolder(binding.root)
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
