@@ -72,18 +72,18 @@ class UserDetailActivity : AppCompatActivity() {
 	private fun setDataToView(detailList: DetailResponse) {
 		binding?.apply {
 			detailsIvAvatar.loadImage(detailList.avatarUrl)
-			detailsTvName.text = detailList.name ?: "No Name."
+			detailsTvName.text = detailList.name ?: resources.getString(R.string.noname)
 			detailsTvUsername.text = detailList.login
 			detailsTvBio.text =
-				if (detailList.bio == null) "This person haven\'t set their bio yet." else detailList.bio.toString()
+				if (detailList.bio == null) resources.getString(R.string.nobio) else detailList.bio.toString()
 			detailsTvFollower.text = resources.getString(R.string.follower, detailList.followers)
 			detailsTvFollowing.text = resources.getString(R.string.following, detailList.following)
 			detailsTvGist.text = resources.getString(R.string.gist, detailList.publicGists)
 			detailsTvRepository.text =
 				resources.getString(R.string.repository, detailList.publicRepos)
-			detailsTvCompany.text = detailList.company ?: "No company."
-			detailsTvLocation.text = detailList.location ?: "No location."
-			detailsTvBlog.text = if (detailList.blog == "") "No website/blog." else detailList.blog
+			detailsTvCompany.text = detailList.company ?: resources.getString(R.string.nocompany)
+			detailsTvLocation.text = detailList.location ?: resources.getString(R.string.nolocation)
+			detailsTvBlog.text = if (detailList.blog == "") resources.getString(R.string.noblog) else detailList.blog
 		}
 		supportActionBar?.title = detailList.login
 	}
