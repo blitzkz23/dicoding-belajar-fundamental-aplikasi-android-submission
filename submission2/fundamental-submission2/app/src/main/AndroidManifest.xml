@@ -13,10 +13,10 @@
         android:theme="@style/Theme.GithubUserApplication"
         android:fullBackupContent="@xml/backup_descriptor">
         <activity
-            android:name=".ui.activities.UserDetailActivity"
+            android:name=".view.activities.UserDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.activities.MainActivity"
+            android:name=".view.activities.MainActivity"
             android:theme="@style/SplashScreenTheme"
             android:exported="true">
             <intent-filter>

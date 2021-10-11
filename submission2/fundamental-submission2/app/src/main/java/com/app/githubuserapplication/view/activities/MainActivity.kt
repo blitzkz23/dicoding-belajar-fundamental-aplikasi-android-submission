@@ -1,4 +1,4 @@
-package com.app.githubuserapplication.ui.activities
+package com.app.githubuserapplication.view.activities
 
 import android.app.SearchManager
 import android.content.Context
@@ -16,7 +16,7 @@ import com.app.githubuserapplication.R
 import com.app.githubuserapplication.adapter.SearchAdapter
 import com.app.githubuserapplication.databinding.ActivityMainBinding
 import com.app.githubuserapplication.model.GithubUser
-import com.app.githubuserapplication.ui.viewmodels.MainViewModel
+import com.app.githubuserapplication.view.viewmodels.MainViewModel
 import com.app.githubuserapplication.utils.Helper
 
 class MainActivity : AppCompatActivity() {

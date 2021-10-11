@@ -1,4 +1,4 @@
-package com.app.githubuserapplication.ui.activities
+package com.app.githubuserapplication.view.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,7 +10,7 @@ import com.app.githubuserapplication.adapter.SectionsPagerAdapter
 import com.app.githubuserapplication.databinding.ActivityUserDetailBinding
 import com.app.githubuserapplication.model.DetailResponse
 import com.app.githubuserapplication.model.GithubUser
-import com.app.githubuserapplication.ui.viewmodels.UserDetailViewModel
+import com.app.githubuserapplication.view.viewmodels.UserDetailViewModel
 import com.app.githubuserapplication.utils.Helper
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
