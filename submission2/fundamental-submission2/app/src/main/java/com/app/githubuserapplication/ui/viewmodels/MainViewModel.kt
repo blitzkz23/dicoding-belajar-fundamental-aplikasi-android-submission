@@ -1,6 +1,7 @@
 package com.app.githubuserapplication.ui.viewmodels
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,6 +22,9 @@ class MainViewModel : ViewModel() {
 
 	private val _totalCount = MutableLiveData<Int>()
 	val totalCount: LiveData<Int> = _totalCount
+
+	private val _status = MutableLiveData<String>()
+	val status: LiveData<String> = _status
 
 	companion object {
 		private const val TAG = "MainViewModel"
@@ -49,6 +53,7 @@ class MainViewModel : ViewModel() {
 			override fun onFailure(call: Call<UserResponse>, t: Throwable) {
 				_isLoading.value = false
 				Log.e(TAG, "onFailure: ${t.message}")
+				_status.value = "Data failed to load, please try again."
 			}
 		})
 	}

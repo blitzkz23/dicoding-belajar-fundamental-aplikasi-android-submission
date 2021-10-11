@@ -9,6 +9,7 @@ import android.view.Menu
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.githubuserapplication.R
@@ -41,6 +42,12 @@ class MainActivity : AppCompatActivity() {
 
 		mainViewModel.totalCount.observe(this, {
 			showText(it)
+		})
+
+		mainViewModel.status.observe(this, { status ->
+			status?.let {
+				Toast.makeText(this, status.toString(), Toast.LENGTH_SHORT).show()
+			}
 		})
 
 		val layoutManager = LinearLayoutManager(this@MainActivity)
