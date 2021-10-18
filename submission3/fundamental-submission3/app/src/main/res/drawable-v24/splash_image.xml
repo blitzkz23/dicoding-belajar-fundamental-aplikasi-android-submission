@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/primary_gray" />
+
+    <item android:drawable="@drawable/ic_github_brands" android:gravity="center" />
+</layer-list>
