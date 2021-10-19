@@ -1,7 +1,7 @@
 package com.app.githubuserapplication.api
 
 import com.app.githubuserapplication.BuildConfig
-import com.app.githubuserapplication.model.DetailResponse
+import com.app.githubuserapplication.model.response.DetailResponse
 import com.app.githubuserapplication.model.GithubUser
 import com.app.githubuserapplication.model.UserResponse
 import retrofit2.Call

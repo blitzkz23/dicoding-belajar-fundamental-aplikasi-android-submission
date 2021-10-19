@@ -4,7 +4,6 @@
     <string name="user_not_found">User not found please search\n for another username.</string>
     <string name="search_guide">You can search a Github\'s username\n in the search bar above.</string>
     <string name="content_description">User Avatar</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="followers_title">Followers</string>
     <string name="following_title">Following</string>
     <string name="repository">%d\n repository</string>
@@ -18,11 +17,11 @@
     <string name="username_placeholder">Username</string>
     <string name="plaholder_pic">placeholder picture</string>
     <string name="search">Search</string>
-    <string name="noblog">No website/blog.</string>
-    <string name="nolocation">No location.</string>
-    <string name="nocompany">No company.</string>
-    <string name="noname">No Name.</string>
-    <string name="nobio">This person haven\'t set their bio yet.</string>
+    <string name="noblog">(Blog not set).</string>
+    <string name="nolocation">(Location not set).</string>
+    <string name="nocompany">(Company not set).</string>
+    <string name="noname">(Name not set).</string>
+    <string name="nobio">(Bio not set).</string>
 
     <string-array name="tab_title">
         <item>@string/followers_title</item>

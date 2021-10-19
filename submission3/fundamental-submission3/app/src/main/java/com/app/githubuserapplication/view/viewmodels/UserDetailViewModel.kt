@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.app.githubuserapplication.api.ApiConfig
-import com.app.githubuserapplication.model.DetailResponse
+import com.app.githubuserapplication.model.response.DetailResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,3 +1,5 @@
+@file:Suppress("SameParameterValue")
+
 package com.app.githubuserapplication.view.activities
 
 
@@ -34,37 +36,50 @@ class MainActivity : AppCompatActivity() {
 		_binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding?.root)
 
+		// Live data observe
 		mainViewModel.listGithubUser.observe(this, { listGithubUser ->
 			setUserData(listGithubUser)
 		})
-
 		mainViewModel.isLoading.observe(this, {
 			helper.showLoading(it, binding!!.progressBar)
 		})
-
 		mainViewModel.totalCount.observe(this, {
 			showText(it)
 		})
-
 		mainViewModel.status.observe(this, { status ->
 			status?.let {
 				Toast.makeText(this, status.toString(), Toast.LENGTH_SHORT).show()
 			}
 		})
 
+		// Set recyclerview
 		val layoutManager = LinearLayoutManager(this@MainActivity)
 		binding?.rvUser?.layoutManager = layoutManager
 
+		// Search function
 		val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
 		binding?.searchView?.setSearchableInfo(searchManager.getSearchableInfo(componentName))
 		searchUsername()
+
+		// Initial starting list
+		mainViewModel.searchGithubUser(randomStartingList(2))
 	}
 
+	private fun randomStartingList(length: Int): String {
+		val alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz"
+		return (1..length)
+			.map { alphabet.random() }
+			.joinToString("")
+	}
+
+	/**
+	 * Function to listen to the query on the search view.
+	 */
 	private fun searchUsername() {
 		binding?.searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 			override fun onQueryTextSubmit(query: String?): Boolean {
 				query?.let {
-					binding!!.rvUser.visibility = View.VISIBLE
+					binding?.rvUser?.visibility = View.VISIBLE
 					mainViewModel.searchGithubUser(it)
 					setUserData(listGithubUser)
 				}
@@ -76,11 +91,10 @@ class MainActivity : AppCompatActivity() {
 				return false
 			}
 		})
-
 	}
 
 	/**
-	 * Function to initialize search view on action bar
+	 * Function to initialize search view on action bar.
 	 */
 	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 		val inflater = menuInflater
@@ -90,7 +104,7 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	/**
-	 * Function to set the data from API into UI
+	 * Function to set the data from API into UI.
 	 */
 	private fun setUserData(listGithubUser: List<GithubUser>) {
 		val listUser = ArrayList<GithubUser>()

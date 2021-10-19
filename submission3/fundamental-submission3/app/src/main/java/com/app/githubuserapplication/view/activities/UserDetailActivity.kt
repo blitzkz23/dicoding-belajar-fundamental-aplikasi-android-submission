@@ -9,7 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.app.githubuserapplication.R
 import com.app.githubuserapplication.view.adapter.SectionsPagerAdapter
 import com.app.githubuserapplication.databinding.ActivityUserDetailBinding
-import com.app.githubuserapplication.model.DetailResponse
+import com.app.githubuserapplication.model.response.DetailResponse
 import com.app.githubuserapplication.model.GithubUser
 import com.app.githubuserapplication.view.viewmodels.UserDetailViewModel
 import com.app.githubuserapplication.utils.Helper
@@ -29,14 +29,13 @@ class UserDetailActivity : AppCompatActivity() {
 		_binding = ActivityUserDetailBinding.inflate(layoutInflater)
 		setContentView(binding?.root)
 
+		// Live data observe
 		userDetailViewModel.listDetail.observe(this, { detailList ->
 			setDataToView(detailList)
 		})
-
 		userDetailViewModel.isLoading.observe(this, {
 			helper.showLoading(it, binding!!.progressBar2)
 		})
-
 		userDetailViewModel.status.observe(this, { status ->
 			status?.let {
 				Toast.makeText(this, status.toString(), Toast.LENGTH_SHORT).show()
