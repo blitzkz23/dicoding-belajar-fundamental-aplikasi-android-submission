@@ -22,6 +22,7 @@ import com.app.githubuserapplication.utils.Helper
 class MainActivity : AppCompatActivity() {
 	private var _binding: ActivityMainBinding? = null
 	private val binding get() = _binding
+
 	private val mainViewModel by viewModels<MainViewModel>()
 	private var listGithubUser = ArrayList<GithubUser>()
 	private val helper = Helper()
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 		})
 
 		val layoutManager = LinearLayoutManager(this@MainActivity)
-		binding!!.rvUser.layoutManager = layoutManager
+		binding?.rvUser?.layoutManager = layoutManager
 	}
 
 	/**
@@ -62,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 		inflater.inflate(R.menu.main_menu, menu)
 
 		val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-		val searchView = menu!!.findItem(R.id.search).actionView as SearchView
+		val searchView = menu?.findItem(R.id.search)?.actionView as SearchView
 
 		searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
 		searchView.queryHint = resources.getString(R.string.search_hint)
@@ -94,7 +95,7 @@ class MainActivity : AppCompatActivity() {
 			listUser.addAll(listGithubUser)
 		}
 		val adapter = SearchAdapter(listUser)
-		binding!!.rvUser.adapter = adapter
+		binding?.rvUser?.adapter = adapter
 
 		adapter.setOnItemClickCallback(object : SearchAdapter.OnItemClickCallback {
 			override fun onItemClicked(data: GithubUser) {
@@ -131,7 +132,7 @@ class MainActivity : AppCompatActivity() {
 	 */
 	private fun hideKeyboard() {
 		val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-		imm.hideSoftInputFromWindow(binding!!.rvUser.windowToken, 0)
+		imm.hideSoftInputFromWindow(binding?.rvUser?.windowToken, 0)
 	}
 
 	override fun onDestroy() {

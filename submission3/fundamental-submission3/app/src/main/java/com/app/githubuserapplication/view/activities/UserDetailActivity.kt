@@ -20,6 +20,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class UserDetailActivity : AppCompatActivity() {
 	private var _binding: ActivityUserDetailBinding? = null
 	private val binding get() = _binding
+
 	private val userDetailViewModel by viewModels<UserDetailViewModel>()
 	private val helper = Helper()
 
