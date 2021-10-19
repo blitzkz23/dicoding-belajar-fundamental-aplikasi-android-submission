@@ -12,4 +12,5 @@
     <color name="secondary_gray">#FF11161F</color>
     <color name="stroke_gray">#FF2A2F36</color>
     <color name="detail_text">#FFD9CFCD</color>
+    <color name="indicator_blue">#FF358FF8</color>
 </resources>

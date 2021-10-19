@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.app.githubuserapplication.R
-import com.app.githubuserapplication.adapter.SectionsPagerAdapter
+import com.app.githubuserapplication.view.adapter.SectionsPagerAdapter
 import com.app.githubuserapplication.databinding.ActivityUserDetailBinding
 import com.app.githubuserapplication.model.DetailResponse
 import com.app.githubuserapplication.model.GithubUser

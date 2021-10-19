@@ -156,6 +156,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details_tv_blog"
             app:tabTextColor="@color/white"
+            app:tabIndicatorColor="@color/indicator_blue"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <androidx.viewpager2.widget.ViewPager2

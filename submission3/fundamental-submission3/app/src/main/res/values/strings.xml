@@ -2,7 +2,7 @@
     <string name="app_name">Github User Application</string>
     <string name="search_hint">Enter a Github\'s username</string>
     <string name="user_not_found">User not found please search\n for another username.</string>
-    <string name="search_guide">You can search a Github\'s username\n in the action bar search icon.</string>
+    <string name="search_guide">You can search a Github\'s username\n in the search bar above.</string>
     <string name="content_description">User Avatar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="followers_title">Followers</string>

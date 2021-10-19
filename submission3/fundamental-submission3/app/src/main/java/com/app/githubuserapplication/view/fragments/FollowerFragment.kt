@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.app.githubuserapplication.adapter.FollowsAdapter
+import com.app.githubuserapplication.view.adapter.FollowsAdapter
 import com.app.githubuserapplication.databinding.FragmentFollowsBinding
 import com.app.githubuserapplication.model.GithubUser
 import com.app.githubuserapplication.view.activities.UserDetailActivity

@@ -1,5 +1,6 @@
 package com.app.githubuserapplication.view.activities
 
+
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
@@ -8,12 +9,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.githubuserapplication.R
-import com.app.githubuserapplication.adapter.SearchAdapter
+import com.app.githubuserapplication.view.adapter.SearchAdapter
 import com.app.githubuserapplication.databinding.ActivityMainBinding
 import com.app.githubuserapplication.model.GithubUser
 import com.app.githubuserapplication.view.viewmodels.MainViewModel
@@ -53,21 +54,14 @@ class MainActivity : AppCompatActivity() {
 
 		val layoutManager = LinearLayoutManager(this@MainActivity)
 		binding?.rvUser?.layoutManager = layoutManager
-	}
-
-	/**
-	 * Function to initialize search view on action bar
-	 */
-	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-		val inflater = menuInflater
-		inflater.inflate(R.menu.main_menu, menu)
 
 		val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-		val searchView = menu?.findItem(R.id.search)?.actionView as SearchView
+		binding?.searchView?.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+		searchUsername()
+	}
 
-		searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-		searchView.queryHint = resources.getString(R.string.search_hint)
-		searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+	private fun searchUsername() {
+		binding?.searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 			override fun onQueryTextSubmit(query: String?): Boolean {
 				query?.let {
 					binding!!.rvUser.visibility = View.VISIBLE
@@ -82,6 +76,16 @@ class MainActivity : AppCompatActivity() {
 				return false
 			}
 		})
+
+	}
+
+	/**
+	 * Function to initialize search view on action bar
+	 */
+	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+		val inflater = menuInflater
+		inflater.inflate(R.menu.main_menu, menu)
+
 		return true
 	}
 
