@@ -97,6 +97,7 @@
         <TextView
             android:id="@+id/details_tv_company"
             style="@style/TextContent.Details"
+            android:layout_width="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:drawablePadding="4dp"
@@ -113,6 +114,7 @@
         <TextView
             android:id="@+id/details_tv_location"
             style="@style/TextContent.Details"
+            android:layout_width="0dp"
             android:layout_marginStart="16dp"
             android:drawablePadding="4dp"
             android:ellipsize="end"
@@ -126,6 +128,7 @@
         <TextView
             android:id="@+id/details_tv_blog"
             style="@style/TextContent.Details"
+            android:layout_width="0dp"
             android:layout_marginStart="16dp"
             android:drawablePadding="4dp"
             android:ellipsize="end"
@@ -171,8 +174,8 @@
             android:layout_marginBottom="32dp"
             android:backgroundTint="@color/primary_gray"
             android:clickable="true"
-            android:focusable="true"
             android:contentDescription="@string/favbutton"
+            android:focusable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_unfavorite"

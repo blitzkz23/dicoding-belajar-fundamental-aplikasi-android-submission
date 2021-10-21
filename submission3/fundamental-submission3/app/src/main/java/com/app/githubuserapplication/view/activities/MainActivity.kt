@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	/**
-	 * Function to initialize search view on action bar.
+	 * Function to initialize inflate menu
 	 */
 	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 		val inflater = menuInflater
@@ -104,15 +104,18 @@ class MainActivity : AppCompatActivity() {
 		return true
 	}
 
+	/**
+	 * Function when item on menu is clicked.
+	 */
 	override fun onOptionsItemSelected(item: MenuItem): Boolean {
-		when (item.itemId) {
+		return when (item.itemId) {
 			R.id.theme_settings -> {
-				return true
+				true
 			}
 			R.id.favorites -> {
-				return true
+				true
 			}
-			else -> return true
+			else -> true
 		}
 
 	}
