@@ -27,6 +27,8 @@ class UserDetailActivity : AppCompatActivity() {
 	private val userDetailViewModel by viewModels<UserDetailViewModel>()
 	private val helper = Helper()
 
+	private var buttonState: Boolean = false
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		_binding = ActivityUserDetailBinding.inflate(layoutInflater)
@@ -46,6 +48,15 @@ class UserDetailActivity : AppCompatActivity() {
 		})
 
 		setTabLayoutView()
+		binding?.fabFavorite?.setOnClickListener {
+			if (buttonState == false) {
+				buttonState = true
+				binding?.fabFavorite?.setImageResource(R.drawable.ic_favorite)
+			} else {
+				buttonState = false
+				binding?.fabFavorite?.setImageResource(R.drawable.ic_unfavorite)
+			}
+		}
 	}
 
 	/**
