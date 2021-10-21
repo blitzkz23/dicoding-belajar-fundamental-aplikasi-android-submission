@@ -22,6 +22,7 @@
     <string name="nocompany">(Company not set).</string>
     <string name="noname">(Name not set).</string>
     <string name="nobio">(Bio not set).</string>
+    <string name="favbutton">favbutton</string>
 
     <string-array name="tab_title">
         <item>@string/followers_title</item>

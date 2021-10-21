@@ -2,6 +2,9 @@ package com.app.githubuserapplication.view.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -75,7 +78,7 @@ class UserDetailActivity : AppCompatActivity() {
 			detailsTvName.text = detailList.name ?: resources.getString(R.string.noname)
 			detailsTvUsername.text = detailList.login
 			detailsTvBio.text =
-				if (detailList.bio == null) resources.getString(R.string.nobio) else detailList.bio.toString()
+				if (detailList.bio == null) resources.getString(R.string.nobio) else detailList.bio.toString().trim()
 			detailsTvFollower.text = resources.getString(R.string.follower, detailList.followers)
 			detailsTvFollowing.text = resources.getString(R.string.following, detailList.following)
 			detailsTvGist.text = resources.getString(R.string.gist, detailList.publicGists)

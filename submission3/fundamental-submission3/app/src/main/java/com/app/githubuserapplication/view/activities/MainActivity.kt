@@ -9,6 +9,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -101,6 +102,19 @@ class MainActivity : AppCompatActivity() {
 		inflater.inflate(R.menu.main_menu, menu)
 
 		return true
+	}
+
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		when (item.itemId) {
+			R.id.theme_settings -> {
+				return true
+			}
+			R.id.favorites -> {
+				return true
+			}
+			else -> return true
+		}
+
 	}
 
 	/**

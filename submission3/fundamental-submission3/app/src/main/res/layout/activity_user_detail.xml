@@ -115,6 +115,8 @@
             style="@style/TextContent.Details"
             android:layout_marginStart="16dp"
             android:drawablePadding="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             app:drawableStartCompat="@drawable/ic_location"
             app:layout_constraintBottom_toTopOf="@+id/details_tv_blog"
             app:layout_constraintStart_toStartOf="parent"
@@ -126,6 +128,8 @@
             style="@style/TextContent.Details"
             android:layout_marginStart="16dp"
             android:drawablePadding="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             app:drawableStartCompat="@drawable/ic_web"
             app:layout_constraintBottom_toTopOf="@+id/progressBar2"
             app:layout_constraintStart_toStartOf="parent"
@@ -159,6 +163,21 @@
             app:tabTextColor="@color/white"
             tools:ignore="SpeakableTextPresentCheck" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@color/primary_gray"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/favbutton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_unfavorite"
+            app:tint="@color/white" />
+
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
@@ -168,7 +187,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tabs" />
+            app:layout_constraintTop_toBottomOf="@+id/tabs">
+
+        </androidx.viewpager2.widget.ViewPager2>
 
         <ProgressBar
             android:id="@+id/progressBar2"
