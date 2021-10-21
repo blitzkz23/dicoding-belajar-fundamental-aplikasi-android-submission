@@ -28,11 +28,13 @@
         <TextView
             android:id="@+id/details_tv_name"
             style="@style/TextContent.TitleDetails"
-            android:layout_width="250dp"
+            android:layout_width="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:ellipsize="end"
             android:lines="1"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/detailsIvAvatar"
             app:layout_constraintTop_toTopOf="@+id/detailsIvAvatar"
             tools:text="@string/name_placeholder" />
@@ -46,17 +48,6 @@
             app:layout_constraintStart_toEndOf="@+id/detailsIvAvatar"
             app:layout_constraintTop_toBottomOf="@+id/details_tv_name"
             tools:text="@string/username_placeholder" />
-
-        <TextView
-            android:id="@+id/details_tv_follower"
-            style="@style/TextContent.Details"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="@+id/details_tv_following"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/details_tv_following"
-            app:layout_constraintTop_toTopOf="@+id/details_tv_following"
-            tools:text="@string/follower" />
 
         <TextView
             android:id="@+id/details_tv_repository"
@@ -73,17 +64,6 @@
             tools:text="@string/repository" />
 
         <TextView
-            android:id="@+id/details_tv_following"
-            style="@style/TextContent.Details"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="@+id/details_tv_gist"
-            app:layout_constraintEnd_toStartOf="@+id/details_tv_follower"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/details_tv_gist"
-            app:layout_constraintTop_toTopOf="@+id/details_tv_gist"
-            tools:text="@string/following" />
-
-        <TextView
             android:id="@+id/details_tv_gist"
             style="@style/TextContent.Details"
             android:textAlignment="center"
@@ -92,7 +72,32 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/details_tv_repository"
             app:layout_constraintTop_toTopOf="@+id/details_tv_repository"
+            app:layout_constraintVertical_bias="0.0"
             tools:text="@string/gist" />
+
+        <TextView
+            android:id="@+id/details_tv_follower"
+            style="@style/TextContent.Details"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/details_tv_following"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/details_tv_following"
+            app:layout_constraintTop_toTopOf="@+id/details_tv_following"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="@string/follower" />
+
+        <TextView
+            android:id="@+id/details_tv_following"
+            style="@style/TextContent.Details"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/details_tv_gist"
+            app:layout_constraintEnd_toStartOf="@+id/details_tv_follower"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/details_tv_gist"
+            app:layout_constraintTop_toTopOf="@+id/details_tv_gist"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="@string/following" />
 
         <TextView
             android:id="@+id/details_tv_company"
@@ -100,11 +105,13 @@
             android:layout_width="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:drawablePadding="4dp"
             android:ellipsize="end"
             android:maxLines="1"
             app:drawableStartCompat="@drawable/ic_company"
             app:layout_constraintBottom_toTopOf="@+id/details_tv_location"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details_tv_repository"
             app:layout_constraintVertical_bias="0.0"
@@ -116,11 +123,13 @@
             style="@style/TextContent.Details"
             android:layout_width="0dp"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:drawablePadding="4dp"
             android:ellipsize="end"
             android:maxLines="1"
             app:drawableStartCompat="@drawable/ic_location"
             app:layout_constraintBottom_toTopOf="@+id/details_tv_blog"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details_tv_company"
             tools:text="@string/location_placeholder" />
@@ -130,11 +139,13 @@
             style="@style/TextContent.Details"
             android:layout_width="0dp"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:drawablePadding="4dp"
             android:ellipsize="end"
             android:maxLines="1"
             app:drawableStartCompat="@drawable/ic_web"
             app:layout_constraintBottom_toTopOf="@+id/progressBar2"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/details_tv_location"
             tools:text="@string/website_placeholder" />

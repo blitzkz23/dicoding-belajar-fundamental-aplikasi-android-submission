@@ -44,6 +44,8 @@ class UserDetailActivity : AppCompatActivity() {
 			}
 		})
 
+		supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
 		setTabLayoutView()
 		binding?.fabFavorite?.setOnClickListener {
 			if (!buttonState) {
@@ -99,6 +101,11 @@ class UserDetailActivity : AppCompatActivity() {
 				if (detailList.blog == "") resources.getString(R.string.noblog) else detailList.blog
 		}
 		supportActionBar?.title = detailList.login
+	}
+
+	override fun onSupportNavigateUp(): Boolean {
+		finish()
+		return true
 	}
 
 	/**
