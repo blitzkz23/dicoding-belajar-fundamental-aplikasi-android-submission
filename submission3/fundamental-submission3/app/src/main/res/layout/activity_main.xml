@@ -37,7 +37,6 @@
         tools:listitem="@layout/item_row_user" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +51,6 @@
         app:layout_constraintVertical_bias="0.4" />
 
     <TextView
-        android:id="@+id/tvNotice"
         style="@style/TextContent.Title"
         android:text="@string/search_guide"
         android:textAlignment="center"
