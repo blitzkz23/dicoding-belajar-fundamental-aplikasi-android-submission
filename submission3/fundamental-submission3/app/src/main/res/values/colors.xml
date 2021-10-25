@@ -6,6 +6,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+
 <!--    Github Pallete  -->
     <color name="primary_gray">#FF161B22</color>
     <color name="primary_black">#FF010409</color>
@@ -14,4 +15,8 @@
     <color name="darker_than_gray">#FF010412</color>
     <color name="detail_text">#FFD9CFCD</color>
     <color name="indicator_blue">#FF358FF8</color>
+
+<!--    Light theme -->
+    <color name="alterwhite">#FFFFE8E1</color>
+    <color name="olderorange">#FFFF9974</color>
 </resources>

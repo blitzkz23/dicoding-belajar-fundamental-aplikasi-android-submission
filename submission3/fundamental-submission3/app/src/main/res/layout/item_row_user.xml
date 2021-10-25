@@ -45,6 +45,7 @@
 
 
         <TextView
+            android:id="@+id/tv_url"
             style="@style/TextContent"
             android:layout_marginTop="4dp"
             android:ellipsize="end"

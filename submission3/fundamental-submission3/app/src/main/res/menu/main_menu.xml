@@ -4,7 +4,7 @@
 
     <group android:menuCategory="container">
         <item
-            android:id="@+id/theme_settings"
+            android:id="@+id/theme_setting"
             android:icon="@drawable/ic_settings"
             android:title="@string/search"
             app:showAsAction="ifRoom" />

@@ -23,6 +23,9 @@
     <string name="noname">(Name not set).</string>
     <string name="nobio">(Bio not set).</string>
     <string name="favbutton">favbutton</string>
+    <string name="theme_setting">Theme Setting</string>
+    <string name="moonicon">moonicon</string>
+    <string name="sunicon">sunicon</string>
 
     <string-array name="tab_title">
         <item>@string/followers_title</item>

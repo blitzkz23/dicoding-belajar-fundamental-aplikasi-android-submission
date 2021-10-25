@@ -109,8 +109,10 @@ class MainActivity : AppCompatActivity() {
 	 */
 	override fun onOptionsItemSelected(item: MenuItem): Boolean {
 		return when (item.itemId) {
-			R.id.theme_settings -> {
-				true
+			R.id.theme_setting -> {
+				val intent = Intent(this@MainActivity, ThemeSettingsActivity::class.java)
+				startActivity(intent)
+				return true
 			}
 			R.id.favorites -> {
 				true
