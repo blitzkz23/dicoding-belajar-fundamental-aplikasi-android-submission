@@ -1,4 +1,4 @@
-package com.app.githubuserapplication.view.viewmodels
+package com.app.githubuserapplication.view.details.follows
 
 import android.util.Log
 import androidx.lifecycle.LiveData

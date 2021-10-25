@@ -1,4 +1,4 @@
-package com.app.githubuserapplication.view.adapter
+package com.app.githubuserapplication.view.details.follows
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

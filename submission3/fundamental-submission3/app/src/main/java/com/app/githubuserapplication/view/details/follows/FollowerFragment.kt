@@ -1,4 +1,4 @@
-package com.app.githubuserapplication.view.fragments
+package com.app.githubuserapplication.view.details.follows
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,11 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.app.githubuserapplication.view.adapter.FollowsAdapter
 import com.app.githubuserapplication.databinding.FragmentFollowsBinding
 import com.app.githubuserapplication.model.GithubUser
-import com.app.githubuserapplication.view.activities.UserDetailActivity
-import com.app.githubuserapplication.view.viewmodels.FollowerViewModel
+import com.app.githubuserapplication.view.details.UserDetailActivity
 import com.app.githubuserapplication.utils.Helper
 
 

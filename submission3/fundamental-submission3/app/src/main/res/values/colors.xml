@@ -18,5 +18,6 @@
 
 <!--    Light theme -->
     <color name="alterwhite">#FFF6F8FA</color>
+    <color name="cardwhite">#FFF6F6F6</color>
     <color name="olderorange">#FFFF9974</color>
 </resources>

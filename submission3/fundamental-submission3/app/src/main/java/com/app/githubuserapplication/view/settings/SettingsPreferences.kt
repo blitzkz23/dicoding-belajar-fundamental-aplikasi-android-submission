@@ -1,4 +1,4 @@
-package com.app.githubuserapplication.view.preferences
+package com.app.githubuserapplication.view.settings
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences

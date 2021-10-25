@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUserApplication">
         <activity
-            android:name=".view.activities.ThemeSettingsActivity"
+            android:name=".view.settings.ThemeSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activities.UserDetailActivity"
+            android:name=".view.details.UserDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".view.activities.MainActivity"
+            android:name=".view.main.MainActivity"
             android:exported="true"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>

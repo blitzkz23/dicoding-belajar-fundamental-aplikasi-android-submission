@@ -1,6 +1,6 @@
 @file:Suppress("SameParameterValue")
 
-package com.app.githubuserapplication.view.activities
+package com.app.githubuserapplication.view.main
 
 
 import android.app.SearchManager
@@ -17,11 +17,11 @@ import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.githubuserapplication.R
-import com.app.githubuserapplication.view.adapter.SearchAdapter
 import com.app.githubuserapplication.databinding.ActivityMainBinding
 import com.app.githubuserapplication.model.GithubUser
-import com.app.githubuserapplication.view.viewmodels.MainViewModel
 import com.app.githubuserapplication.utils.Helper
+import com.app.githubuserapplication.view.settings.ThemeSettingsActivity
+import com.app.githubuserapplication.view.details.UserDetailActivity
 
 class MainActivity : AppCompatActivity() {
 	private var _binding: ActivityMainBinding? = null

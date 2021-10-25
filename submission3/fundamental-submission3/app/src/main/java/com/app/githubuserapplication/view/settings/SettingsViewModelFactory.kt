@@ -1,9 +1,7 @@
-package com.app.githubuserapplication.view.viewmodels.factory
+package com.app.githubuserapplication.view.settings
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.app.githubuserapplication.view.preferences.SettingsPreferences
-import com.app.githubuserapplication.view.viewmodels.ThemeSettingsViewModel
 
 class SettingsViewModelFactory(private val pref: SettingsPreferences) : ViewModelProvider.NewInstanceFactory() {
 	@Suppress("UNCHECKED_CAST")
