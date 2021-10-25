@@ -17,6 +17,6 @@
     <color name="indicator_blue">#FF358FF8</color>
 
 <!--    Light theme -->
-    <color name="alterwhite">#FFFFE8E1</color>
+    <color name="alterwhite">#FFF6F8FA</color>
     <color name="olderorange">#FFFF9974</color>
 </resources>
