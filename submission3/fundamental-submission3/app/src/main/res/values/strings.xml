@@ -6,6 +6,7 @@
     <string name="content_description">User Avatar</string>
     <string name="followers_title">Followers</string>
     <string name="following_title">Following</string>
+    <string name="username_detail">%s\'s profile</string>
     <string name="repository">%d\n repository</string>
     <string name="gist">%d\n gist</string>
     <string name="following">%d\n following</string>

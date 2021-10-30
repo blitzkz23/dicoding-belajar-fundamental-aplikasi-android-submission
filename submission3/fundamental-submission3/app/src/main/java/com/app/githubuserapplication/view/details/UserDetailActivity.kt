@@ -1,16 +1,18 @@
 package com.app.githubuserapplication.view.details
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.app.githubuserapplication.R
 import com.app.githubuserapplication.databinding.ActivityUserDetailBinding
-import com.app.githubuserapplication.model.response.DetailResponse
 import com.app.githubuserapplication.model.GithubUser
+import com.app.githubuserapplication.model.database.FavoriteUser
+import com.app.githubuserapplication.model.response.DetailResponse
 import com.app.githubuserapplication.utils.Helper
+import com.app.githubuserapplication.view.ViewModelFactory
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -19,15 +21,18 @@ class UserDetailActivity : AppCompatActivity() {
 	private var _binding: ActivityUserDetailBinding? = null
 	private val binding get() = _binding
 
-	private val userDetailViewModel by viewModels<UserDetailViewModel>()
+	private lateinit var userDetailViewModel: UserDetailViewModel
 	private val helper = Helper()
 
 	private var buttonState: Boolean = false
+	private var favoriteUser: FavoriteUser? = null
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		_binding = ActivityUserDetailBinding.inflate(layoutInflater)
 		setContentView(binding?.root)
+
+		userDetailViewModel = obtainViewModel(this@UserDetailActivity)
 
 		// Live data observe
 		userDetailViewModel.listDetail.observe(this, { detailList ->
@@ -45,15 +50,39 @@ class UserDetailActivity : AppCompatActivity() {
 		supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 		setTabLayoutView()
+		favoriteUser = FavoriteUser()
 		binding?.fabFavorite?.setOnClickListener {
 			if (!buttonState) {
 				buttonState = true
 				binding?.fabFavorite?.setImageResource(R.drawable.ic_favorite)
+				userDetailViewModel.listDetail.observe(this, { detailList ->
+					insertToDatabase(detailList)
+				})
 			} else {
 				buttonState = false
 				binding?.fabFavorite?.setImageResource(R.drawable.ic_unfavorite)
 			}
 		}
+	}
+
+	/**
+	 * Function to return View Model Factory
+	 */
+	private fun obtainViewModel(activity: AppCompatActivity): UserDetailViewModel {
+		val factory = ViewModelFactory.getInstance(activity.application)
+		return ViewModelProvider(activity, factory).get(UserDetailViewModel::class.java)
+	}
+
+	private fun insertToDatabase(detailList: DetailResponse) {
+		favoriteUser.let { favoriteUser ->
+			favoriteUser?.id = detailList.id
+			favoriteUser?.login = detailList.login
+			favoriteUser?.htmlUrl = detailList.htmlUrl
+			favoriteUser?.avatarUrl = detailList.avatarUrl
+			userDetailViewModel.insert(favoriteUser as FavoriteUser)
+			helper.showToast(this, "User has been favorited.")
+		}
+
 	}
 
 	/**
@@ -98,7 +127,7 @@ class UserDetailActivity : AppCompatActivity() {
 			detailsTvBlog.text =
 				if (detailList.blog == "") resources.getString(R.string.noblog) else detailList.blog
 		}
-		supportActionBar?.title = detailList.login
+		supportActionBar?.title = resources.getString(R.string.username_detail, detailList.login)
 	}
 
 	override fun onSupportNavigateUp(): Boolean {

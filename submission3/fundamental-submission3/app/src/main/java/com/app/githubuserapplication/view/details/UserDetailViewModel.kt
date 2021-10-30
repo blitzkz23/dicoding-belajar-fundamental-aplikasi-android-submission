@@ -1,16 +1,19 @@
 package com.app.githubuserapplication.view.details
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.app.githubuserapplication.api.ApiConfig
+import com.app.githubuserapplication.model.database.FavoriteUser
+import com.app.githubuserapplication.model.repository.FavoriteUserRepository
 import com.app.githubuserapplication.model.response.DetailResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserDetailViewModel : ViewModel() {
+class UserDetailViewModel(application: Application) : ViewModel() {
 	private val _listDetail = MutableLiveData<DetailResponse>()
 	val listDetail: LiveData<DetailResponse> = _listDetail
 
@@ -19,6 +22,16 @@ class UserDetailViewModel : ViewModel() {
 
 	private val _status = MutableLiveData<String>()
 	val status: LiveData<String> = _status
+
+	private val mFavoriteUserRepository: FavoriteUserRepository = FavoriteUserRepository(application)
+
+	fun insert(user: FavoriteUser) {
+		mFavoriteUserRepository.insert(user)
+	}
+
+	fun delete(user: FavoriteUser) {
+		mFavoriteUserRepository.delete(user)
+	}
 
 	internal fun getGithubUser(login: String) {
 		_isLoading.value = true
@@ -44,6 +57,10 @@ class UserDetailViewModel : ViewModel() {
 				Log.e(TAG, "onFailure: ${t.message}")
 			}
 		})
+	}
+
+	fun getFavoriteUser() {
+
 	}
 
 	companion object {
