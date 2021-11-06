@@ -23,15 +23,18 @@ class UserDetailViewModel(application: Application) : ViewModel() {
 	private val _status = MutableLiveData<String>()
 	val status: LiveData<String> = _status
 
-	private val mFavoriteUserRepository: FavoriteUserRepository = FavoriteUserRepository(application)
+	private val mFavoriteUserRepository: FavoriteUserRepository =
+		FavoriteUserRepository(application)
 
 	fun insert(user: FavoriteUser) {
 		mFavoriteUserRepository.insert(user)
 	}
 
-	fun delete(user: FavoriteUser) {
-		mFavoriteUserRepository.delete(user)
+	fun delete(id: Int) {
+		mFavoriteUserRepository.delete(id)
 	}
+
+	fun getAllFavorites(): LiveData<List<FavoriteUser>> = mFavoriteUserRepository.getAllFavorites()
 
 	internal fun getGithubUser(login: String) {
 		_isLoading.value = true
@@ -57,10 +60,6 @@ class UserDetailViewModel(application: Application) : ViewModel() {
 				Log.e(TAG, "onFailure: ${t.message}")
 			}
 		})
-	}
-
-	fun getFavoriteUser() {
-
 	}
 
 	companion object {

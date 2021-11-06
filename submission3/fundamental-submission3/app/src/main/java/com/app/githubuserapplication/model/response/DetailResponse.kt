@@ -3,9 +3,8 @@ package com.app.githubuserapplication.model.response
 import com.google.gson.annotations.SerializedName
 
 data class DetailResponse(
-
 	@field: SerializedName("id")
-	val id: Int? = null,
+	val id: Int = 0,
 
 	@field:SerializedName("bio")
 	val bio: Any? = null,

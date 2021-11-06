@@ -22,6 +22,7 @@ import com.app.githubuserapplication.model.GithubUser
 import com.app.githubuserapplication.utils.Helper
 import com.app.githubuserapplication.view.settings.ThemeSettingsActivity
 import com.app.githubuserapplication.view.details.UserDetailActivity
+import com.app.githubuserapplication.view.favorites.FavoriteUserActivity
 
 class MainActivity : AppCompatActivity() {
 	private var _binding: ActivityMainBinding? = null
@@ -115,6 +116,8 @@ class MainActivity : AppCompatActivity() {
 				return true
 			}
 			R.id.favorites -> {
+				val intent = Intent(this@MainActivity, FavoriteUserActivity::class.java)
+				startActivity(intent)
 				true
 			}
 			else -> true
@@ -144,9 +147,9 @@ class MainActivity : AppCompatActivity() {
 	 * Function to open detail activity after clicking one of the user list.
 	 */
 	private fun showSelectedUser(data: GithubUser) {
-		val moveWithParcelableIntent = Intent(this@MainActivity, UserDetailActivity::class.java)
-		moveWithParcelableIntent.putExtra(UserDetailActivity.EXTRA_USER, data)
-		startActivity(moveWithParcelableIntent)
+		val intent = Intent(this@MainActivity, UserDetailActivity::class.java)
+		intent.putExtra(UserDetailActivity.EXTRA_USER, data.login)
+		startActivity(intent)
 	}
 
 	/**

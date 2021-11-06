@@ -14,7 +14,11 @@
         android:theme="@style/Theme.GithubUserApplication">
         <activity
             android:name=".view.favorites.FavoriteUserActivity"
-            android:exported="false" />
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.main.MainActivity" />
+        </activity>
         <activity
             android:name=".view.settings.ThemeSettingsActivity"
             android:exported="false" />

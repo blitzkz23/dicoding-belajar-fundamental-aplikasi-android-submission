@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.app.githubuserapplication.R
 import com.app.githubuserapplication.databinding.ActivityUserDetailBinding
-import com.app.githubuserapplication.model.GithubUser
 import com.app.githubuserapplication.model.database.FavoriteUser
 import com.app.githubuserapplication.model.response.DetailResponse
 import com.app.githubuserapplication.utils.Helper
@@ -22,6 +21,7 @@ class UserDetailActivity : AppCompatActivity() {
 	private val binding get() = _binding
 
 	private lateinit var userDetailViewModel: UserDetailViewModel
+	private var detailUser = DetailResponse()
 	private val helper = Helper()
 
 	private var buttonState: Boolean = false
@@ -35,9 +35,6 @@ class UserDetailActivity : AppCompatActivity() {
 		userDetailViewModel = obtainViewModel(this@UserDetailActivity)
 
 		// Live data observe
-		userDetailViewModel.listDetail.observe(this, { detailList ->
-			setDataToView(detailList)
-		})
 		userDetailViewModel.isLoading.observe(this, {
 			helper.showLoading(it, binding!!.progressBar2)
 		})
@@ -50,19 +47,38 @@ class UserDetailActivity : AppCompatActivity() {
 		supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 		setTabLayoutView()
-		favoriteUser = FavoriteUser()
-		binding?.fabFavorite?.setOnClickListener {
-			if (!buttonState) {
-				buttonState = true
-				binding?.fabFavorite?.setImageResource(R.drawable.ic_favorite)
-				userDetailViewModel.listDetail.observe(this, { detailList ->
-					insertToDatabase(detailList)
-				})
-			} else {
-				buttonState = false
-				binding?.fabFavorite?.setImageResource(R.drawable.ic_unfavorite)
+
+
+		// Check if user is favorited
+		userDetailViewModel.listDetail.observe(this, { detailList ->
+			detailUser = detailList
+			setDataToView(detailUser)
+			favoriteUser = FavoriteUser(detailUser.id, detailUser.login)
+			userDetailViewModel.getAllFavorites().observe(this, { favoriteList ->
+				if (favoriteList != null) {
+					for (data in favoriteList) {
+						if (detailUser.id == data.id) {
+							buttonState = true
+							binding?.fabFavorite?.setImageResource(R.drawable.ic_favorite)
+						}
+					}
+				}
+			})
+
+			// Favorite event
+			binding?.fabFavorite?.setOnClickListener {
+				if (!buttonState) {
+					buttonState = true
+					binding?.fabFavorite?.setImageResource(R.drawable.ic_favorite)
+					insertToDatabase(detailUser)
+				} else {
+					buttonState = false
+					binding?.fabFavorite?.setImageResource(R.drawable.ic_unfavorite)
+					userDetailViewModel.delete(detailUser.id)
+					helper.showToast(this, "Favorite user has been deleted.")
+				}
 			}
-		}
+		})
 	}
 
 	/**
@@ -79,31 +95,34 @@ class UserDetailActivity : AppCompatActivity() {
 			favoriteUser?.login = detailList.login
 			favoriteUser?.htmlUrl = detailList.htmlUrl
 			favoriteUser?.avatarUrl = detailList.avatarUrl
+			favoriteUser?.isFavorite = true
 			userDetailViewModel.insert(favoriteUser as FavoriteUser)
 			helper.showToast(this, "User has been favorited.")
 		}
-
 	}
 
 	/**
 	 * Function to set the view of the tab layout.
 	 */
 	private fun setTabLayoutView() {
-		val userIntent = intent.getParcelableExtra<GithubUser>(EXTRA_USER) as GithubUser
-		userDetailViewModel.getGithubUser(userIntent.login)
+		val userIntent = intent.extras
+		if (userIntent != null) {
+			val userLogin = userIntent.getString(EXTRA_USER)
+			if (userLogin != null) {
+				userDetailViewModel.getGithubUser(userLogin)
+				val login = Bundle()
+				login.putString(EXTRA_FRAGMENT, userLogin)
+				val sectionPagerAdapter = SectionsPagerAdapter(this, login)
+				val viewPager: ViewPager2 = binding!!.viewPager
 
-		val login = Bundle()
-		login.putString(EXTRA_FRAGMENT, userIntent.login)
-
-		val sectionPagerAdapter = SectionsPagerAdapter(this, login)
-		val viewPager: ViewPager2 = binding!!.viewPager
-
-		viewPager.adapter = sectionPagerAdapter
-		val tabs: TabLayout = binding!!.tabs
-		val tabTitle = resources.getStringArray(R.array.tab_title)
-		TabLayoutMediator(tabs, viewPager) { tab, position ->
-			tab.text = tabTitle[position]
-		}.attach()
+				viewPager.adapter = sectionPagerAdapter
+				val tabs: TabLayout = binding!!.tabs
+				val tabTitle = resources.getStringArray(R.array.tab_title)
+				TabLayoutMediator(tabs, viewPager) { tab, position ->
+					tab.text = tabTitle[position]
+				}.attach()
+			}
+		}
 	}
 
 	/**

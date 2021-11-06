@@ -8,14 +8,17 @@ import androidx.room.PrimaryKey
 data class FavoriteUser(
 	@PrimaryKey
 	@ColumnInfo(name = "id")
-	var id: Int? = 0,
+	var id: Int,
 
 	@ColumnInfo(name = "login")
-	var login: String? = null,
+	var login: String?,
 
 	@ColumnInfo(name = "html_url")
 	var htmlUrl: String? = null,
 
 	@ColumnInfo(name = "avatar_url")
 	var avatarUrl: String? = null,
+
+	@ColumnInfo(name = "is_favorite")
+	var isFavorite: Boolean? = false
 )
