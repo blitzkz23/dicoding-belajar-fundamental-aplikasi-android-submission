@@ -186,7 +186,7 @@
             android:layout_marginBottom="32dp"
             android:backgroundTint="@color/primary_gray"
             android:clickable="true"
-            android:contentDescription="@string/favbutton"
+            android:contentDescription="@string/favorite_button"
             android:focusable="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

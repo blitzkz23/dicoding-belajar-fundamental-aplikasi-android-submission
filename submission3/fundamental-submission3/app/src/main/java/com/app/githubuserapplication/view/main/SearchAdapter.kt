@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.app.githubuserapplication.databinding.ItemRowUserBinding
-import com.app.githubuserapplication.model.GithubUser
+import com.app.githubuserapplication.model.response.GithubUser
 import com.bumptech.glide.Glide
 
 class SearchAdapter(private val listUser: List<GithubUser>) :

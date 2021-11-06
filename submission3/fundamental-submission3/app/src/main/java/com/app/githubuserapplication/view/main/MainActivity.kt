@@ -18,7 +18,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.githubuserapplication.R
 import com.app.githubuserapplication.databinding.ActivityMainBinding
-import com.app.githubuserapplication.model.GithubUser
+import com.app.githubuserapplication.model.response.GithubUser
 import com.app.githubuserapplication.utils.Helper
 import com.app.githubuserapplication.view.settings.ThemeSettingsActivity
 import com.app.githubuserapplication.view.details.UserDetailActivity

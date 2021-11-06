@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.app.githubuserapplication.databinding.ItemRowUserBinding
-import com.app.githubuserapplication.model.GithubUser
+import com.app.githubuserapplication.model.response.GithubUser
 import com.bumptech.glide.Glide
 
 class FollowsAdapter(private val listFollow: List<GithubUser>) :

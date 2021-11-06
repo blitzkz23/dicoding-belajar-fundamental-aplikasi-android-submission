@@ -18,7 +18,4 @@ data class FavoriteUser(
 
 	@ColumnInfo(name = "avatar_url")
 	var avatarUrl: String? = null,
-
-	@ColumnInfo(name = "is_favorite")
-	var isFavorite: Boolean? = false
 )

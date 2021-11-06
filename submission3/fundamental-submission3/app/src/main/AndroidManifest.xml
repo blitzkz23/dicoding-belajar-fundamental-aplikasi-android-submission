@@ -21,7 +21,11 @@
         </activity>
         <activity
             android:name=".view.settings.ThemeSettingsActivity"
-            android:exported="false" />
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.main.MainActivity" />
+        </activity>
         <activity
             android:name=".view.details.UserDetailActivity"
             android:exported="true" />

@@ -15,6 +15,10 @@ class ApiConfig {
 				val loggingInterceptor = HttpLoggingInterceptor()
 				loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
 				httpClient.addInterceptor(loggingInterceptor)
+			} else {
+				val loggingInterceptor = HttpLoggingInterceptor()
+				loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.NONE)
+				httpClient.addInterceptor(loggingInterceptor)
 			}
 
 			val retrofit = Retrofit.Builder()

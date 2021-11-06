@@ -26,6 +26,7 @@ class ThemeSettingsActivity : AppCompatActivity() {
 		val themeSettingsViewModel = ViewModelProvider(this, SettingsViewModelFactory(pref)).get(
 			ThemeSettingsViewModel::class.java
 		)
+		supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
 		themeSettingsViewModel.getThemeSettings().observe(this, { isLightModeActive: Boolean ->
 			if (isLightModeActive) {

@@ -95,7 +95,6 @@ class UserDetailActivity : AppCompatActivity() {
 			favoriteUser?.login = detailList.login
 			favoriteUser?.htmlUrl = detailList.htmlUrl
 			favoriteUser?.avatarUrl = detailList.avatarUrl
-			favoriteUser?.isFavorite = true
 			userDetailViewModel.insert(favoriteUser as FavoriteUser)
 			helper.showToast(this, "User has been favorited.")
 		}

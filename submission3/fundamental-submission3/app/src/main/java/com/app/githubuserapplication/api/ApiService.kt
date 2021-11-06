@@ -2,8 +2,8 @@ package com.app.githubuserapplication.api
 
 import com.app.githubuserapplication.BuildConfig
 import com.app.githubuserapplication.model.response.DetailResponse
-import com.app.githubuserapplication.model.GithubUser
-import com.app.githubuserapplication.model.UserResponse
+import com.app.githubuserapplication.model.response.GithubUser
+import com.app.githubuserapplication.model.response.UserResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
