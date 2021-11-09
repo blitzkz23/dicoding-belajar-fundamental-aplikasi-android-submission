@@ -4,7 +4,7 @@ Saya paham betapa sulitnya menyelesaikan submisi untuk kelas ini, apalagi kalau 
 sebagai sumber referensi *mungkin* bagi orang yang numpang lewat cari-cari ;)
 
 *Submisi ini mungkin bukan karya terbaik atau apapun, secara saya juga baru belajar namun setidaknya memenuhi kriteria dan saya selalu menerapkan saran yang diberikan reviewer
-pada setiap submisi saya telah direview.*
+pada setiap submisi saya telah direview, serta masih banyak ruang yang bisa diimprove*
 
 ## Cara Menjalankan Project
 1. Download zip project atau git clone https://github.com/blitzkz23/dicoding-android-fundamental-submission.git menggunakan terminal git
