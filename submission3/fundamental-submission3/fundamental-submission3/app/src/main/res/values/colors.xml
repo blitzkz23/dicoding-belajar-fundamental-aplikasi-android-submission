@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+<!--    Github Pallete  -->
+    <color name="primary_gray">#FF161B22</color>
+    <color name="primary_black">#FF010409</color>
+    <color name="secondary_gray">#FF11161F</color>
+    <color name="stroke_gray">#FF2A2F36</color>
+    <color name="darker_than_gray">#FF010412</color>
+    <color name="detail_text">#FFD9CFCD</color>
+    <color name="indicator_blue">#FF358FF8</color>
+
+<!--    Light theme -->
+    <color name="alterwhite">#FFF6F8FA</color>
+    <color name="cardwhite">#FFF6F6F6</color>
+    <color name="olderorange">#FFFF9974</color>
+</resources>

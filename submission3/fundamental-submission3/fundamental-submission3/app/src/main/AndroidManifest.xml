@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.app.githubuserapplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:icon="@mipmap/ic_github"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_github_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GithubUserApplication">
+        <activity
+            android:name=".view.favorites.FavoriteUserActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.main.MainActivity" />
+        </activity>
+        <activity
+            android:name=".view.settings.ThemeSettingsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.main.MainActivity" />
+        </activity>
+        <activity
+            android:name=".view.details.UserDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.main.MainActivity"
+            android:exported="true"
+            android:theme="@style/SplashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

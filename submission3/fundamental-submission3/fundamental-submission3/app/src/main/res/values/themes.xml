@@ -1,0 +1,49 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.GithubUserApplication" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_gray</item>
+        <item name="colorPrimaryVariant">@color/primary_black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondary_gray</item>
+        <item name="colorSecondaryVariant">@color/stroke_gray</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/darker_than_gray</item>
+        <item name="android:windowBackground">@color/primary_black</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="SplashScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_image</item>
+        <item name="android:statusBarColor">@color/primary_gray</item>
+    </style>
+
+    <style name="TextContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="fontFamily">@font/open_sans</item>
+    </style>
+
+    <style name="TextContent.Title">
+        <item name="fontFamily">@font/open_sans_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextContent.TitleDetails">
+        <item name="fontFamily">@font/open_sans_bold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="TextContent.SubtitleDetails">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/detail_text</item>
+    </style>
+
+    <style name="TextContent.Details">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+</resources>
