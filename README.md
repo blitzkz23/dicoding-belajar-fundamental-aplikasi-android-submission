@@ -11,5 +11,4 @@ pada setiap submisi saya telah direview.*
 2. Jalankan pada Android Studio
 3. Jika Anda membuka submisi ke-2 atau 3, akan mengalami error namun jangan khawatir
 4. Buka build.gradle
-5. Pada line 20, silahkan ubah "localProperties['apiKey']" dengan api key github Anda
-Contoh: buildConfigField("String", "GITHUB_TOKEN", '"ghp_TEuicCsasaSkz8znXcGpt4vYIvieeedn2wGd8q"')
+5. Pada line 20, silahkan ubah "localProperties['apiKey']" dengan api key github Anda, contoh: buildConfigField("String", "GITHUB_TOKEN", '"ghp_TEuicCsasaSkz8znXcGpt4vYIvieeedn2wGd8q"')
