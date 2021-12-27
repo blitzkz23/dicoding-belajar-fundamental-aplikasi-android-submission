@@ -12,7 +12,7 @@
         <item
             android:id="@+id/favorites"
             android:icon="@drawable/ic_favorite"
-            android:title="@string/search"
+            android:title="@string/favoriteduser"
             app:showAsAction="always" />
     </group>
 
