@@ -1,4 +1,4 @@
-# Submisi Kelas Belajar Fundamental Aplikasi Android (BFAA)
+# Submission Dicoding Kelas Belajar Fundamental Aplikasi Android (BFAA)
 Submission saya untuk <strong>[Kelas Dicoding Belajar Fundamental Aplikasi Android (BFAA)](https://www.dicoding.com/academies/14)</strong>, menggunakan bahasa pemrogaman kotlin.
 
 ## Project Preview:
