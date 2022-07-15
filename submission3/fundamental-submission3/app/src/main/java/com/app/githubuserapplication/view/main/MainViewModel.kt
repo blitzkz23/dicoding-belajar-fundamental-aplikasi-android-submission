@@ -4,14 +4,16 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.app.githubuserapplication.api.ApiConfig
 import com.app.githubuserapplication.model.response.GithubUser
 import com.app.githubuserapplication.model.response.UserResponse
+import com.app.githubuserapplication.view.settings.SettingsPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel : ViewModel() {
+class MainViewModel(private val pref: SettingsPreferences) : ViewModel() {
 
 	private val _listGithubUser = MutableLiveData<List<GithubUser>>()
 	val listGithubUser: LiveData<List<GithubUser>> = _listGithubUser
@@ -51,6 +53,10 @@ class MainViewModel : ViewModel() {
 				_status.value = "Data failed to load, please try again."
 			}
 		})
+	}
+
+	fun getThemeSettings(): LiveData<Boolean> {
+		return pref.getThemeSetting().asLiveData()
 	}
 
 	companion object {

@@ -8,13 +8,19 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SearchView
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.githubuserapplication.R
 import com.app.githubuserapplication.databinding.ActivityMainBinding
@@ -23,12 +29,18 @@ import com.app.githubuserapplication.utils.Helper
 import com.app.githubuserapplication.view.settings.ThemeSettingsActivity
 import com.app.githubuserapplication.view.details.UserDetailActivity
 import com.app.githubuserapplication.view.favorites.FavoriteUserActivity
+import com.app.githubuserapplication.view.settings.SettingsPreferences
+import com.app.githubuserapplication.view.settings.SettingsViewModelFactory
+import java.util.*
+import kotlin.collections.ArrayList
+
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+private lateinit var mainViewModel: MainViewModel
 
 class MainActivity : AppCompatActivity() {
 	private var _binding: ActivityMainBinding? = null
 	private val binding get() = _binding
 
-	private val mainViewModel by viewModels<MainViewModel>()
 	private var listGithubUser = ArrayList<GithubUser>()
 	private val helper = Helper()
 
@@ -38,21 +50,24 @@ class MainActivity : AppCompatActivity() {
 		_binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding?.root)
 
+		val pref = SettingsPreferences.getInstance(dataStore)
+		mainViewModel = ViewModelProvider(this, SettingsViewModelFactory(pref)).get(MainViewModel::class.java)
+
 		// Live data observe
-		mainViewModel.listGithubUser.observe(this, { listGithubUser ->
+		mainViewModel.listGithubUser.observe(this) { listGithubUser ->
 			setUserData(listGithubUser)
-		})
-		mainViewModel.isLoading.observe(this, {
+		}
+		mainViewModel.isLoading.observe(this) {
 			helper.showLoading(it, binding!!.progressBar)
-		})
-		mainViewModel.totalCount.observe(this, {
+		}
+		mainViewModel.totalCount.observe(this) {
 			showText(it)
-		})
-		mainViewModel.status.observe(this, { status ->
+		}
+		mainViewModel.status.observe(this) { status ->
 			status?.let {
 				Toast.makeText(this, status.toString(), Toast.LENGTH_SHORT).show()
 			}
-		})
+		}
 
 		// Set recyclerview
 		val layoutManager = LinearLayoutManager(this@MainActivity)
@@ -65,6 +80,15 @@ class MainActivity : AppCompatActivity() {
 
 		// Initial starting list
 		mainViewModel.searchGithubUser(randomStartingList(2))
+
+		// Call dark mode
+		mainViewModel.getThemeSettings().observe(this) { isLightModeActive: Boolean ->
+			if (isLightModeActive) {
+				AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+			} else {
+				AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+			}
+		}
 	}
 
 	private fun randomStartingList(length: Int): String {
